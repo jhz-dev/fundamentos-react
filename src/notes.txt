@@ -1,0 +1,17 @@
+/**
+ * Notes:
+ * props => are read only.
+ *
+ * functional components:
+ * * Just receive as a paremeter the props object
+ * * To set the props to a funtional component with set each attribute
+ * <MyComponent name={name}/>
+ *
+ * JSX
+ * Similar syntax to html
+ * for using/calling a component <ComponentName/>
+ *
+ *
+ * STATE
+ * save some data/ is every thing that a component needs to work properly
+ */
