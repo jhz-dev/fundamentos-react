@@ -13,6 +13,10 @@ import "./style.css";
  * JSX
  * Similar syntax to html
  * for using/calling a component <ComponentName/>
+ *
+ *
+ * STATE
+ * save some data/ is every thing that a component needs to work properly
  */
 
 // functional component
@@ -27,13 +31,37 @@ const MyComponent = props => {
 };
 
 // class component
-class MyClassComponent extends Component {
-  constructor() {
-    super();
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      counter: 0
+    };
   }
 
+  increase = () => {
+    this.setState({
+      counter: this.state.counter + 1
+    });
+  };
+
+  decrease = () => {
+    const counter = this.state.counter > 0 ? this.state.counter - 1 : 0;
+
+    this.setState({ counter });
+  };
+
   render() {
-    return <p>Hello world from a class component</p>;
+    const { counter } = this.state;
+
+    return (
+      <div>
+        <p>{counter}</p>
+        <button onClick={this.increase}>Increase</button>
+        <button onClick={this.decrease}>Declease</button>
+      </div>
+    );
   }
 }
 
@@ -42,7 +70,7 @@ export default function App() {
 
   return (
     <div>
-      <MyClassComponent />
+      <Counter />
       <MyComponent name={name}>
         <p>Someone</p>
       </MyComponent>
