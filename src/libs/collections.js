@@ -23,14 +23,15 @@ export class BlogComponent extends Component {
 
   render() {
     const { articles } = this.state;
+    const cardStyles = {
+      color: "gray"
+    };
+
     return (
       <div>
         {articles.map(article => (
-          <div>
-            <p>
-              id: {article.id}, userId: {article.userId}
-            </p>
-            <span>title: {article.title}</span>
+          <div className="card" style={cardStyles}>
+            <p>{article.title}</p>
           </div>
         ))}
       </div>
